@@ -1,0 +1,191 @@
+/*
+*
+* Styles.CSS
+* Author: JMG
+*
+*/
+
+/*
+*
+* @box-sizing: border-box
+*
+*/
+
+/*
+* Palette de colors 
+* https://coolors.co/011627-1782ed-d1495b-edae49-fdfffc
+*/
+
+
+/* Color */
+
+.color-1 {
+    color: #011627;
+}
+
+.color-2 {
+    color: #1782ED;
+}
+
+.color-3 {
+    color: #84B082;
+}
+
+.color-4 {
+    color: #EDAE49;
+}
+
+.color-5 {
+    color: #FDFFFC;
+}
+
+
+/* Bacground color*/
+
+.b-color-1 {
+    background-color: #424242;
+}
+
+.b-color-2 {
+    background-color: #1782ED;
+}
+
+.b-color-3 {
+    background-color: #84B082;
+}
+
+.b-color-4 {
+    background-color: #EDAE49;
+}
+
+.b-color-5 {
+    background-color: #212121;
+}
+
+
+/* White Color */
+
+.color-white {
+    color: #fff;
+}
+
+
+/* White Color */
+
+.color-white {
+    color: #fff;
+}
+
+
+/* White Color */
+
+.color-grey {
+    color: rgb(208, 208, 208);
+}
+
+/* Gray Color
+* https://coolors.co/app/ffffff-afafaf-2e2d33-494850-2c2c34 
+*/
+
+.b-color-gray-1 {
+    background-color: #AFAFAF;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/*
+*
+* @STYLES PAR DEFAUT
+*
+*/
+
+img,
+svg {
+  width: 100%;
+}
+
+button,
+select,
+input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: auto;
+  text-align: center;
+  z-index: 10000;
+}
+
+.main {
+  padding: 0px 0;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+}
+
+.container {
+    display: flex;
+    width: 90%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+}
+
