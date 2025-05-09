@@ -16,71 +16,66 @@
 * https://coolors.co/011627-1782ed-d1495b-edae49-fdfffc
 */
 
-
 /* Color */
 
 .color-1 {
-    color: #011627;
+  color: #011627;
 }
 
 .color-2 {
-    color: #1782ED;
+  color: #1782ed;
 }
 
 .color-3 {
-    color: #84B082;
+  color: #84b082;
 }
 
 .color-4 {
-    color: #EDAE49;
+  color: #edae49;
 }
 
 .color-5 {
-    color: #FDFFFC;
+  color: #fdfffc;
 }
-
 
 /* Bacground color*/
 
 .b-color-1 {
-    background-color: #424242;
+  background-color: #424242;
 }
 
 .b-color-2 {
-    background-color: #1782ED;
+  background-color: #1782ed;
 }
 
 .b-color-3 {
-    background-color: #84B082;
+  background-color: #84b082;
 }
 
 .b-color-4 {
-    background-color: #EDAE49;
+  background-color: #edae49;
 }
 
 .b-color-5 {
-    background-color: #212121;
+  background-color: #212121;
 }
-
 
 /* White Color */
 
 .color-white {
-    color: #fff;
+  color: #fff;
 }
-
 
 /* White Color */
 
 .color-white {
-    color: #fff;
+  color: #fff;
 }
-
 
 /* White Color */
 
 .color-grey {
-    color: rgb(208, 208, 208);
+  color: rgb(208, 208, 208);
 }
 
 /* Gray Color
@@ -88,7 +83,7 @@
 */
 
 .b-color-gray-1 {
-    background-color: #AFAFAF;
+  background-color: #afafaf;
 }
 
 html {
@@ -133,7 +128,7 @@ ul {
 }
 
 .container {
-  width: 90%;
+  width: 70%;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -144,6 +139,7 @@ body {
   padding: 0;
   width: 100%;
   font-family: Arial, Helvetica, sans-serif;
+  background-color: #262424;
 }
 
 html {
@@ -157,6 +153,7 @@ body {
 
 header {
   position: fixed;
+  height: 100px;
   width: 100%;
   left: 0;
   right: 0;
@@ -164,6 +161,29 @@ header {
   height: auto;
   text-align: center;
   z-index: 10000;
+  background-color: #eaa22b;
+  background-color: #262424;
+  background-color: #1e1d1d;
+  border-bottom: solid 0.2px rgb(255, 255, 255, 0.2);
+  background-color: #eaa22b;
+}
+header .container {
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.svg{
+  width: 100px;
+}
+
+.title-blog{
+  color: white;
+  margin-left: 20px;
+}
+
+.title-image{
+  width: 90px;
 }
 
 .main {
@@ -172,14 +192,11 @@ header {
   flex-direction: column;
   flex: 1;
   height: 100%;
+  background-color: rgba(255, 255, 255, 0.037);
+  padding-top: 80px;
 }
 
-.container {
-    display: flex;
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
-}
+
 
 footer {
   position: absolute;
@@ -187,5 +204,9 @@ footer {
   right: 0;
   bottom: 0;
   text-align: center;
+  background-color: green;
 }
 
+footer .container{
+  background-color: rgb(128, 0, 124);
+}
