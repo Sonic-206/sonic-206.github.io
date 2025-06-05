@@ -102,6 +102,8 @@ html {
 
 h2 {
   padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 a {
@@ -276,11 +278,11 @@ footer .container {
 }
 
 .input-label {
-  width: 80px;
+  width: 115px;
 }
 
 .input-input {
-  width: 100px;
+  width: auto;
   height: 25px;
   background-color: rgb(230, 229, 229);
   border: solid 1px black;
@@ -323,6 +325,26 @@ footer .container {
 .commande-result {
   background-color: rgb(8, 166, 50);
   padding: 5px;
+}
+
+select.cmd-input {
+  background-color: #fff;
+  width: auto;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.fill-text {
+  font-size: 12px;
+}
+
+.p-commande {
+  margin-bottom: 5px;
+  padding: 5px;
+}
+
+.p-commande p {
+  line-height: 1.5;
 }
 
 @media screen and (max-width: 614px) {
