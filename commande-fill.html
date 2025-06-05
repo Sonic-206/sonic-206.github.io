@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nino's website</title>
+    <meta name="apple-mobile-web-app-title" content="Accueil" />
+    <meta name="author" content="Nino" />
+    <meta name="description" content="description du contenu" />
+    <!---- Favicon ---->
+    <link rel="icon" href="img/Favicon-32.png" />
+    <!---- Android Icon ---->
+    <link rel="icon" sizes="192x192" href="img/icon-192.png" />
+    <!---- IOS Icon ---->
+    <link rel="apple-touch-icon-precomposed" href="img/icon-180.png" />
+    <!---- stylesheet ---->
+    <link rel="stylesheet" href="css/normalize.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <!---- https://fontawesome.com/ ---->
+    <link rel="stylesheet" href="css/all.min.css" />
+
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <style>
+      @font-face {
+        font-family: "Minecraftia";
+        src: url("/structures-folder/webfonts/minecraft.woff");
+      }
+      .text-button {
+        font-family: "Minecraftia";
+        font-size: 12px;
+      }
+      .span-code {
+        background-color: rgb(8, 166, 50);
+        padding: 3px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!---insert HEADER-->
+    <div id="containerHead"></div>
+    <script src="js/insertHeader.js"></script>
+    <script>
+      // default
+      // minecraft
+    headerHTML1("minecraft")
+    </script>
+    <!---insert HEADER-->
+    <div class="main container">
+      <div>
+        <h2>Commande /fill: Remplir une région avec un type de bloc</h2>
+        <code class="commande">/fill &ltfrom&gt &ltto&gt &ltblock&gt</code>
+        <p>
+          <code class="span-code">&ltfrom&gt</code> : les coordonnées de départ
+          de la zone à remplir. Ils sont exprimés en coordonnées XYZ et
+          peuvent être absolues ou relatives (en utilisant le symbole ~).
+        </p>
+        <p>
+          <code class="span-code">&ltto&gt</code> : les coordonnées de fin de la
+          zone à remplir. Ils sont exprimés en coordonnées XYZ et peuvent être
+          absolues ou relatives (en utilisant le symbole ~).
+        </p>
+        <p>
+          <code class="span-code">&ltblock&gt</code> : le type de bloc avec
+          lequel remplir la région. Il doit être le nom officiel du bloc dans
+          Minecraft (par exemple, stone, air, glass, etc.).
+        </p>
+        <h3>Conseils d’utilisation</h3>
+        <ul>
+          <li>La zone maximale est de 32 768 blocs par commande</li>
+          <li>Pour obtenir les coordonnées, acive l’affichage des coordonnées dans les paramètres, puis place-toi dans les coins opposés de la zone à remplir</li>
+          <li>Les noms de blocs doivent être exacts</li>
+        </ul>
+      </div>
+      <div class="container-inputs">
+        <div class="container-input">
+          <div class="input-label">&ltfrom&gt</div>
+          <div class="input-input">
+            <input class="cmd-input" id="from" data-result="from-result" title="12"/>
+          </div>
+          <div
+            id="commande-paste-from"
+            class="commande-paste"
+            data-result="from"
+            data-resultout="from-result"
+          >
+            <i class="fa-regular fa-paste"></i>
+            <span class="text-button">coller</span>
+          </div>
+        </div>
+        <div class="container-input">
+          <div class="input-label">&ltto&gt</div>
+          <div class="input-input">
+            <input class="cmd-input" id="to" data-result="to-result" />
+          </div>
+          <div
+            id="commande-paste-to"
+            class="commande-paste"
+            data-result="to"
+            data-resultout="to-result"
+          >
+            <i class="fa-regular fa-paste"></i>
+            <span class="text-button">coller</span>
+          </div>
+        </div>
+        <div class="container-input">
+          <div class="input-label">&ltblock&gt</div>
+          <div class="input-input">
+            <input class="cmd-input" pattern="[a-z]" id="block" data-result="block-result" title="Nom en lettres"/>
+          </div>
+          <div
+            id="commande-paste-block"
+            class="commande-paste"
+            data-result="block"
+            data-resultout="block-result"
+          >
+            <i class="fa-regular fa-paste"></i>
+            <span class="text-button">coller</span>
+          </div>
+        </div>
+      </div>
+      <div>Resultat</div>
+      <div style="display: flex; align-items: center; column-gap: 10px">
+        <code class="commande-result" id="commande-result">
+          <span>/fill</span>
+          <span id="from-result">&ltfrom&gt</span>
+          <span id="to-result">&ltto&gt</span>
+          <span id="block-result">&ltblock&gt</span>
+        </code>
+        <div class="container-copy">
+          <div id="commande-copy" class="commande-copy">
+            <i class="fa-regular fa-copy"></i>
+            <span class="text-button">copie</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="structures-folder/data/data.js"></script>
+  <script>
+    let from = document.getElementById("from");
+    let to = document.getElementById("to");
+    let block = document.getElementById("block");
+
+    function change(e) {
+      let element = document.getElementById(e.currentTarget.dataset.result);
+      element.textContent = e.currentTarget.value;
+      e.preventDefault();
+    }
+
+    let buttonCopy = document.querySelectorAll(".cmd-input");
+
+    buttonCopy.forEach((element) => {
+      element.addEventListener("change", change);
+    });
+
+    function pasteCMD(e) {
+      let el = document.getElementById(e.currentTarget.id);
+      let element = document.getElementById(e.currentTarget.dataset.result);
+      let elementOut = document.getElementById(
+        e.currentTarget.dataset.resultout
+      );
+      navigator.clipboard.readText().then((clipText) => {
+        element.value = clipText;
+        elementOut.textContent = clipText;
+        el.classList.add("copy-click-commande");
+        el.querySelector("span").textContent = 'collé';
+          setTimeout(() => {
+            el.classList.remove("copy-click-commande");
+            el.querySelector("span").textContent = 'coller';
+          }, 1000);
+      });
+    }
+
+    function copyCMD(e) {
+      let text =
+        "/fill" + " " + from.value + " " + to.value + " " + block.value;
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          let element = document.getElementById(e.currentTarget.id);
+          element.classList.add("copy-click-commande");
+          element.textContent = "copied";
+          setTimeout(() => {
+            element.classList.remove("copy-click-commande");
+            element.textContent = "copy";
+          }, 1000);
+        })
+        .catch((err) => {
+          console.error("Could not copy text: ", err);
+        });
+      e.preventDefault();
+    }
+
+    let butCopy = document
+      .getElementById("commande-copy")
+      .addEventListener("click", copyCMD);
+
+    let inputPaste = document
+      .getElementById("commande-paste-from")
+      .addEventListener("click", pasteCMD);
+
+    let inputPasteTo = document
+      .getElementById("commande-paste-to")
+      .addEventListener("click", pasteCMD);
+
+    let inputPasteBlock = document
+      .getElementById("commande-paste-block")
+      .addEventListener("click", pasteCMD);
+
+    let buttonsPaste = document.querySelectorAll(".commande-paste");
+
+    buttonsPaste.forEach((element) => {
+      element.addEventListener("click", pasteCMD);
+    });
+  </script>
+</html>

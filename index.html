@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Nino's website</title>
-    <meta name="apple-mobile-web-app-title" content="Titre de la page" />
-    <meta name="author" content="JMG" />
+    <meta name="apple-mobile-web-app-title" content="Accueil" />
+    <meta name="author" content="Nino" />
     <meta name="description" content="description du contenu" />
     <!---- Favicon ---->
     <link rel="icon" href="img/Favicon-32.png" />
@@ -22,31 +22,37 @@
     <style type="text/css"></style>
   </head>
   <body>
-    <header>
-      <div class="container">
-        <div class="title-image">
-          <img src="/img/sonic2.png" />
-        </div>
-        <div class="title-blog">
-          <div>Le BLOG</div>
-          <div style="margin-left: 10px;">De Nino</div>
-        </div>
-      </div>
-    </header>
+    <!---insert HEADER-->
+    <div id="containerHead"></div>
+    <script src="js/insertHeader.js"></script>
+    <script>
+      // default
+      // minecraft
+      headerHTML1("default");
+    </script>
+    <!---insert HEADER-->
+
     <div class="main container">
       <section>
-        <h1>What is Lorem Inoooooo</h1>
-        <p>
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book. It has survived not only
-          five centuries, but also the leap into electronic typesetting,
-          remaining essentially unchanged. It was popularised in the 1960s with
-          the release of Letraset sheets containing Lorem Ipsum passages, and
-          more recently with desktop publishing software like Aldus PageMaker
-          including versions of Lorem Ipsum.
-        </p>
+        <h2 class="b-color-3">Minecraft</h2>
+        <ul>
+          <li>
+            <a href="commande-fill.html"
+              >Commande /fill: permet de remplir une zone ou un contour
+              spécifique avec un bloc particulier</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2 class="b-color-1">Jeux Videos</h2>
+        <ul>
+          <li>
+            <a href="poppy-4.html"
+              >Poppy Playtime - Chapter 4: Avis</a
+            >
+          </li>
+        </ul>
       </section>
     </div>
     <footer>
@@ -55,4 +61,6 @@
       </div>
     </footer>
   </body>
+  <script src="js/insertHeader.js"></script>
+  <script></script>
 </html>
