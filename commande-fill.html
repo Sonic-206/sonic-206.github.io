@@ -202,7 +202,7 @@
 
   <script src="structures-folder/data/data.js"></script>
   <script>
-    const fill = {
+    /*const fill = {
       destroy:
         "Remplace tous les blocs de la zone de destination par le nouveau bloc.(valeur par defaut)",
       keep: "Remplace tous les blocs d'air de la zone de destination par le nouveau bloc, et garde les autres blocs sans motification.",
@@ -210,10 +210,11 @@
         "Dessine un cube creux avec le nouveau bloc, et remplit l'intérieur d'air.",
       outline:
         "Dessine un cube creux avec le nouveau bloc, et laisse les anciens blocs à l'intérieur.",
-    };
+    };*/
     let from = document.getElementById("from");
     let to = document.getElementById("to");
     let block = document.getElementById("block");
+    let fill = document.getElementById("fill");
 
     function change(e) {
       let element = document.getElementById(e.currentTarget.dataset.result);
@@ -247,7 +248,7 @@
 
     function copyCMD(e) {
       let text =
-        "/fill" + " " + from.value + " " + to.value + " " + block.value;
+        "/fill" + " " + from.value + " " + to.value + " " + block.value+ " " + fill.value;
       console.log(e.currentTarget);
       let element = document.getElementById(e.currentTarget.id);
       navigator.clipboard
