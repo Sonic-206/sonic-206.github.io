@@ -201,6 +201,7 @@ header {
   height: 100%;
   background-color: rgba(255, 255, 255, 0.037);
   padding-top: 80px;
+  row-gap: 10px;
 }
 
 footer {
@@ -214,6 +215,18 @@ footer {
 
 footer .container {
   background-color: rgb(128, 0, 124);
+}
+
+.display-none {
+  display: none;
+}
+
+.container-code {
+  padding: 0 0 10px 0;
+}
+
+.container-tool {
+  padding: 10px 5px;
 }
 
 .list-items {
@@ -282,6 +295,7 @@ footer .container {
 }
 
 .input-input {
+  position: relative;
   width: auto;
   height: 25px;
   background-color: rgb(230, 229, 229);
@@ -314,15 +328,28 @@ footer .container {
   color: #fff;
 }
 
+.commande-reset {
+  width: 80px;
+  height: 25px;
+  align-items: center;
+  text-align: center;
+  padding: 2px;
+  border: 1px solid rgb(53, 53, 53);
+  box-shadow: inset -1px -2px #0004, inset 1px 1px #fff5;
+  color: #fff;
+}
+
 .copy-click-commande {
   background-color: rgb(5, 83, 26);
   color: white;
 }
 
-.cmd-input {
+.disabled{
+  opacity: 0.5;
 }
 
 .commande-result {
+  font-size: 14px;
   background-color: rgb(8, 166, 50);
   padding: 5px;
 }
@@ -345,6 +372,29 @@ select.cmd-input {
 
 .p-commande p {
   line-height: 1.5;
+}
+
+.pop-search {
+  position: absolute;
+  z-index: 1000;
+  background-color: white;
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.pop-search ul {
+  color: black;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pop-search ul li{
+  border-bottom: solid 1px black;
+  padding: 4px 0;
+}
+.pop-search ul li img{
+  width: 30px;
 }
 
 @media screen and (max-width: 614px) {

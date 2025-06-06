@@ -48,11 +48,146 @@
     </script>
     <!---insert HEADER-->
     <div class="main container">
-      <div>
-        <h2>Commande /fill: Remplir une région avec un type de bloc</h2>
+      <h2>
+        Commande /fill: Remplir ou remplacer une région avec un type de bloc
+      </h2>
+      <div class="container-code">
         <code class="commande"
           >/fill &ltfrom&gt &ltto&gt &ltblock&gt &ltremp&gt</code
         >
+      </div>
+
+      <div class="container-tool b-color-b">
+        <div class="container-inputs">
+          <div class="container-input">
+            <div class="input-label">&ltfrom&gt</div>
+            <div class="input-input">
+              <input
+                class="cmd-input"
+                id="from"
+                data-result="from-result"
+                title="12"
+              />
+            </div>
+            <div
+              id="commande-paste-from"
+              class="commande-paste"
+              data-result="from"
+              data-resultout="from-result"
+            >
+              <i class="fa-regular fa-paste"></i>
+              <span class="text-button">coller</span>
+            </div>
+          </div>
+          <div class="container-input">
+            <div class="input-label">&ltto&gt</div>
+            <div class="input-input">
+              <input class="cmd-input" id="to" data-result="to-result" />
+            </div>
+            <div
+              id="commande-paste-to"
+              class="commande-paste"
+              data-result="to"
+              data-resultout="to-result"
+            >
+              <i class="fa-regular fa-paste"></i>
+              <span class="text-button">coller</span>
+            </div>
+          </div>
+          <div class="container-input">
+            <div class="input-label">&ltblock&gt</div>
+            <div class="input-input">
+              <input
+                class="cmd-input search-block-js"
+                pattern="[a-z]"
+                id="block"
+                data-result="block-result"
+                title="Nom en lettres"
+                data-search="pop-block-search"
+              />
+              <div class="pop-search" id="pop-block-search"></div>
+            </div>
+            <div
+              id="commande-paste-block"
+              class="commande-paste"
+              data-result="block"
+              data-resultout="block-result"
+            >
+              <i class="fa-regular fa-paste"></i>
+              <span class="text-button">coller</span>
+            </div>
+          </div>
+          <div class="container-input-select">
+            <div class="container-input">
+              <div class="input-label">&ltRemplissage&gt</div>
+              <div class="input-input-select">
+                <select class="cmd-input" id="fill" data-result="fill-result">
+                  <option value="" selected>destroy</option>
+                  <option value="keep">keep</option>
+                  <option value="hollow">hollow</option>
+                  <option value="outline">outline</option>
+                  <option value="replace">replace</option>
+                </select>
+                <span class="color-4">*</span>
+              </div>
+            </div>
+          </div>
+          <div class="container-input disabled" id="container-input-block2">
+            <div class="input-label">&ltblock remplacer&gt</div>
+            <div class="input-input">
+              <input
+                class="cmd-input search-block-js disabled"
+                pattern="[a-z]"
+                id="block2"
+                data-result="block2-result"
+                title="Nom en lettres"
+                data-search="pop-block2-search"
+                disabled
+              />
+              <div class="pop-search" id="pop-block2-search"></div>
+            </div>
+            <div
+              id="commande-paste-block2"
+              class="commande-paste display-none"
+              data-result="block2"
+              data-resultout="block2-result"
+            >
+              <i class="fa-regular fa-paste"></i>
+              <span class="text-button">coller</span>
+            </div>
+            <div style="font-size: 12px">
+              Uniquement pour <code class="b-color-3">replace</code>. Block qui
+              sera remplacer.
+            </div>
+          </div>
+        </div>
+        <div style="margin-top: 10px">Resultat</div>
+        <div style="row-gap: 10px;display: flex; flex-direction: column;">
+          <code class="commande-result" id="commande-result">
+            <span>/fill</span>
+            <span id="from-result">&ltfrom&gt</span>
+            <span id="to-result">&ltto&gt</span>
+            <span id="block-result">&ltblock&gt</span>
+            <span id="fill-result"></span>
+            <span id="block2-result"></span>
+          </code>
+          <div style="display: flex; column-gap: 10px;">
+            <div class="container-copy">
+              <div id="commande-copy" class="commande-copy">
+                <i class="fa-regular fa-copy"></i>
+                <span class="text-button">copier</span>
+              </div>
+            </div>
+            <div class="container-reset">
+              <div id="commande-reset" class="commande-reset b-color-4">
+                <i class="fa-regular fa-copy"></i>
+                <span class="text-button">Reset</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="explanation-parameters">
         <div class="p-commande b-color-b">
           <p>
             <code class="span-code">&ltfrom&gt</code> : les coordonnées de
@@ -97,111 +232,30 @@
             <span class="color-3">outline</span> : Dessine un cube creux avec le
             nouveau bloc, et laisse les anciens blocs à l'intérieur.
           </p>
+          <p>
+            <span class="color-3">replace</span> : Permet de remplacer les blocs
+            d'une zone par un autre bloc.
+          </p>
         </div>
         <h3>Conseils d’utilisation</h3>
         <ul>
           <li>La zone maximale est de 32 768 blocs par commande</li>
           <li>
-            Pour obtenir les coordonnées, active l’affichage des coordonnées dans
-            les paramètres, puis place-toi dans les coins opposés de la zone à
-            remplir
+            Pour obtenir les coordonnées, active l’affichage des coordonnées
+            dans les paramètres, puis place-toi dans les coins opposés de la
+            zone à remplir
           </li>
           <li>Les noms de blocs doivent être exacts</li>
         </ul>
-      </div>
-      <div class="container-inputs">
-        <div class="container-input">
-          <div class="input-label">&ltfrom&gt</div>
-          <div class="input-input">
-            <input
-              class="cmd-input"
-              id="from"
-              data-result="from-result"
-              title="12"
-            />
-          </div>
-          <div
-            id="commande-paste-from"
-            class="commande-paste"
-            data-result="from"
-            data-resultout="from-result"
-          >
-            <i class="fa-regular fa-paste"></i>
-            <span class="text-button">coller</span>
-          </div>
-        </div>
-        <div class="container-input">
-          <div class="input-label">&ltto&gt</div>
-          <div class="input-input">
-            <input class="cmd-input" id="to" data-result="to-result" />
-          </div>
-          <div
-            id="commande-paste-to"
-            class="commande-paste"
-            data-result="to"
-            data-resultout="to-result"
-          >
-            <i class="fa-regular fa-paste"></i>
-            <span class="text-button">coller</span>
-          </div>
-        </div>
-        <div class="container-input">
-          <div class="input-label">&ltblock&gt</div>
-          <div class="input-input">
-            <input
-              class="cmd-input"
-              pattern="[a-z]"
-              id="block"
-              data-result="block-result"
-              title="Nom en lettres"
-            />
-          </div>
-          <div
-            id="commande-paste-block"
-            class="commande-paste"
-            data-result="block"
-            data-resultout="block-result"
-          >
-            <i class="fa-regular fa-paste"></i>
-            <span class="text-button">coller</span>
-          </div>
-        </div>
-        <div class="container-input-select">
-          <div class="container-input">
-            <div class="input-label">&ltRemplissage&gt</div>
-            <div class="input-input-select">
-              <select class="cmd-input" id="fill" data-result="fill-result">
-                <option value="" selected>destroy</option>
-                <option value="keep">keep</option>
-                <option value="hollow">hollow</option>
-                <option value="outline">outline</option>
-              </select>
-              <span class="color-4">*</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div>Resultat</div>
-      <div style="display: flex; align-items: center; column-gap: 10px">
-        <code class="commande-result" id="commande-result">
-          <span>/fill</span>
-          <span id="from-result">&ltfrom&gt</span>
-          <span id="to-result">&ltto&gt</span>
-          <span id="block-result">&ltblock&gt</span>
-          <span id="fill-result"></span>
-        </code>
-        <div class="container-copy">
-          <div id="commande-copy" class="commande-copy">
-            <i class="fa-regular fa-copy"></i>
-            <span class="text-button">copier</span>
-          </div>
-        </div>
       </div>
     </div>
   </body>
 
   <script src="structures-folder/data/data.js"></script>
-  <script>
+  <script src="js/blocks.js"></script>
+  <script src="js/filCMD.js"></script>
+  <script src="js/searchBlocks.js"></script>
+  <!--<script>
     /*const fill = {
       destroy:
         "Remplace tous les blocs de la zone de destination par le nouveau bloc.(valeur par defaut)",
@@ -211,10 +265,18 @@
       outline:
         "Dessine un cube creux avec le nouveau bloc, et laisse les anciens blocs à l'intérieur.",
     };*/
+
+    const reset = {
+      from: "",
+      to: "",
+      block: "",
+      fill: "destroy",
+    };
     let from = document.getElementById("from");
     let to = document.getElementById("to");
     let block = document.getElementById("block");
     let fill = document.getElementById("fill");
+    let block2 = document.getElementById("block2");
 
     function change(e) {
       let element = document.getElementById(e.currentTarget.dataset.result);
@@ -248,7 +310,17 @@
 
     function copyCMD(e) {
       let text =
-        "/fill" + " " + from.value + " " + to.value + " " + block.value+ " " + fill.value;
+        "/fill" +
+        " " +
+        from.value +
+        " " +
+        to.value +
+        " " +
+        block.value +
+        " " +
+        fill.value +
+        " " +
+        block2.value;
       console.log(e.currentTarget);
       let element = document.getElementById(e.currentTarget.id);
       navigator.clipboard
@@ -267,9 +339,20 @@
       e.preventDefault();
     }
 
+    function resetCMD(e) {
+      from.value = "";
+      to.value = "";
+      block.value = "";
+      fill.value = "";
+    }
+
     let butCopy = document
       .getElementById("commande-copy")
       .addEventListener("click", copyCMD);
+
+    let butReset = document
+      .getElementById("commande-reset")
+      .addEventListener("click", resetCMD);
 
     let inputPaste = document
       .getElementById("commande-paste-from")
@@ -288,5 +371,5 @@
     buttonsPaste.forEach((element) => {
       element.addEventListener("click", pasteCMD);
     });
-  </script>
+  </script>-->
 </html>
