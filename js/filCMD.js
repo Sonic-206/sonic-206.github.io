@@ -19,6 +19,11 @@
     let block = document.getElementById("block");
     let fill = document.getElementById("fill");
     let block2 = document.getElementById("block2");
+    let fromResult = document.getElementById("from-result");
+    let toResult = document.getElementById("to-result");
+    let blockResult = document.getElementById("block-result");
+    let fillResult = document.getElementById("fill-result");
+    let block2Result = document.getElementById("block2-result");
 
     function change(e) {
       let element = document.getElementById(e.currentTarget.dataset.result);
@@ -87,6 +92,11 @@
       block.value = "";
       fill.value = "";
       block2.value = "";
+      fromResult.textContent = "<from>";
+      toResult.textContent = "<to>";
+      blockResult.textContent = "<block>";
+      fillResult.textContent = "";
+      block2Result.textContent = "";
     }
 
     let butCopy = document
